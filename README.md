@@ -9,7 +9,7 @@ Các khái niệm, lệnh, và chức năng liên quan đến quản trị hệ 
   <summary>
 Lệnh ls thường  </summary> được sử dụng để xác định các tập tin và thư mục trong thư mục làm việc. Lệnh này là một trong nhiều lệnh Linux thường được sử dụng mà bạn nên biết.
 Lệnh này có thể được sử dụng một mình mà không cần bất kỳ đối số nào và nó sẽ cung cấp cho chúng ta kết quả đầu ra với tất cả thông tin chi tiết về các tệp và thư mục trong thư mục làm việc hiện tại. Lệnh này có rất nhiều tính linh hoạt trong việc hiển thị dữ liệu ở đầu ra. Kiểm tra hình ảnh dưới đây để biết đầu ra.
-   
+</details>details>
 ### 3. Openstack
 - Các thành phần openstack
 - Cài đặt keystone
