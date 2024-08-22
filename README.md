@@ -22,7 +22,7 @@ vì đã có các phiên bản mới hơn. Phiên bản này phù hợp với c�
 if [ "$(printf '%s\n' "$required_version" "$docker_version" | sort -V | head -n1)" = "$required_version" ]; then
     echo -e "\nDocker version $docker_version is sufficient.\n"
 else
-    echo -e "\nDocker version $docker_version is not sufficient. Please update Docker to version $required_version or later.\n"
+    echo -e "\nDocker version $docker_version is not sufficient. Please update Docker to version $required_version or later.\n" 
     exit 1
 fi  ```
 fi  `
