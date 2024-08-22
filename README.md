@@ -244,6 +244,9 @@ Trong trường hợp này, chỉ nhóm chủ sở hữu được đổi thành 
 
  **Package Management Centos 7**
 
+<details>
+ <summary>  </summary> 
+ 
  Quản lý các gói là một khía cạnh quan trọng của quản trị hệ thống và phát triển trong môi trường Linux, chẳng hạn như CentOS. Có thể dùng YUM hoặc DNF. Dưới đây là 20 lệnh cơ bản giúp quản lý hiệu quả các gói của hệ thống CentOS, đảm bảo hệ thống chạy trơn tru và an toàn.
 
 1. Install a package:	sudo yum install package_name
@@ -284,9 +287,98 @@ Trong trường hợp này, chỉ nhóm chủ sở hữu được đổi thành 
 
 19. Reinstall a package:	sudo yum reinstall package_name
 
-20. List all available packages:	yum list all     
-
+20. List all available packages:	yum list all
+    
+ </details>
  
+**Data Backup With Rsync**
+<details>
+ <summary>  </summary> 
+Sao lưu dữ liệu là một phần thiết yếu của cả cơ sở hạ tầng cá nhân và doanh nghiệp. Các máy có hệ điều hành Linux có thể sử dụng rsync và ssh để tạo điều kiện thuận lợi cho quá trình này.
+
+Rsync là một tiện ích dòng lệnh cho phép chuyển các tập tin đến các vị trí cục bộ và từ xa. Rsync rất tiện lợi khi sử dụng vì nó được mặc định đi kèm với hầu hết các bản phân phối Linux. Có thể tùy chỉnh công cụ bằng cách sử dụng nhiều tùy chọn có sẵn.
+
+Trong trường hợp này sử dụng SSH kết hợp với rsync để bảo mật việc truyền tệp.
+
+- Điều kiện tiên quyết
+
+Quyền sudo hoặc root hoặc người dùng có quyền truy cập vào thư mục sao lưu và thư mục đích
+
+Truy cập SSH vào máy chủ thông qua dòng lệnh/cửa sổ thiết bị đầu cuối
+
+Rsync được cài đặt trên máy cục bộ và máy đích
+
+- Cú pháp Rsync cơ bản cho việc truyền dữ liệu cục bộ và bên ngoài
+Cú pháp sử dụng công cụ rsync khác nhau đối với truyền dữ liệu cục bộ và từ xa.
+
+Đối với bản sao lưu cục bộ, cú pháp tuân theo mẫu cơ bản sau:
+```
+rsync 
+options
+ SOURCE DESTINATION 
+```
+
+Để chuyển tập tin đến một vị trí bên ngoài, chúng ta sẽ sử dụng một mẫu hơi khác một chút:
+
+```rsync 
+options 
+ SOURCE user@IP_or_hostname:DESTINATION
+```
+
+Trong cả hai trường hợp, nguồn và đích đều là một thư mục hoặc đường dẫn tệp.
+
+- Sử dụng Rsync để sao lưu dữ liệu cục bộ
+Chúng ta sẽ bắt đầu bằng cách thực hiện sao lưu một thư mục trên cùng một máy Linux. Đường dẫn có thể là bất kỳ vị trí nào – phân vùng khác, ổ cứng, bộ lưu trữ ngoài, v.v.
+
+Sử dụng đường dẫn đầy đủ cho cả nguồn và đích để tránh lỗi.
+
+Ví dụ, để sao lưu Dir1 từ Documents tới /media/hdd2/rscync_backup , hãy sử dụng lệnh rsync theo mẫu này:
+
+```rsync -av /home/test/Documents/Dir1 /media/hdd2/rsync_backup```
+/home/test# rsync -av /home/test/Documents/Dir1 / media/hdd2/rsync-backup
+
+- Sử dụng Rsync để sao lưu dữ liệu qua mạng
+Để sao lưu dữ liệu an toàn qua mạng , rsync sử dụng SSH để truyền dữ liệu. Máy chủ của bạn cần được thiết lập để cho phép kết nối SSH.
+
+Sau khi kết nối được với máy từ xa qua SSH , bạn có thể bắt đầu sao lưu dữ liệu vào một vị trí trên máy đó.
+
+Ví dụ, để sao lưu Dir1 để sao lưu trên một máy khác qua mạng, hãy nhập:
+
+```rsync -av /home/test/Documents/Dir1 test@192.168.56.101:/home/test/backup```
+
+Bạn có thể kiểm tra xem các tập tin có thực sự nằm trên máy chủ từ xa hay không:
+
+![image](https://github.com/user-attachments/assets/c52594ac-c7c0-47d9-8f7c-b27341d5cc26)
+
+Nếu bạn kết nối lần đầu tiên, bạn sẽ cần nhập mật khẩu và xác nhận khi nhận được lời nhắc. Không cần nhập tên người dùng để chuyển từ xa nếu bạn muốn kết nối với tư cách là người dùng hiện tại.
+
+Ví dụ chúng tôi sử dụng ở đây giả định rằng SSH sử dụng cổng mặc định. Nếu bạn cần chỉ định một cổng khác cho kết nối SSH, hãy sử dụng cờ -e và nhập tùy chọn SSH.
+
+Ví dụ, để chỉ định cổng 4455, hãy chạy lệnh trên theo định dạng này:
+
+```rsync -av -e 'ssh -p 4455' /home/test/Documents/Dir1 test@192.168.56.101:/home/test/backup```
+
+Khi cần, bạn có thể xóa các tệp nguồn sau khi chuyển chúng sang vị trí khác.
+
+- Nén dữ liệu khi sao lưu bằng Rsync
+  
+Để tiết kiệm dung lượng, bạn có thể nén dữ liệu trước khi chuyển sang vị trí khác. Bạn có thể sử dụng tùy chọn tích hợp của rsync để nén dữ liệu hoặc sử dụng một công cụ khác để thực hiện việc đó trước khi chạy rsync.
+
+Để nén dữ liệu trong quá trình truyền, hãy sử dụng ```-z``` lệnh chuyển đổi ```rsync```.
+
+```rsync -avz /home/test/Documents/Dir1 test@192.168.56.101:/home/test/backup```
+
+Một lựa chọn khác là sử dụng```zip```lệnh để nén các tệp hoặc thư mục của bạn và sau đó chạy ```rsync```. Trong trường hợp của chúng tôi, chúng tôi sẽ nén Dir1 vào Dir.zip :
+
+```zip /home/test/Documents/Dir1.zip /home/test/Documents/Dir1```
+
+Sau đó chuyển tập tin đó đến một vị trí khác:
+
+```rsync -avz /home/test/Documents/Dir1.zip test@192.168.56.101:/home/test/backup```
+
+Bây giờ, bạn có một bản sao nén của thư mục trên máy chủ từ xa. Bạn cũng có thể thực hiện điều này để chuyển dữ liệu cục bộ nếu bạn muốn sao lưu trên ổ đĩa hoặc phân vùng khác.
+
+  </details>
 ### 3. Openstack
 - Các thành phần openstack
 - Cài đặt keystone
