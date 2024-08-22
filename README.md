@@ -35,8 +35,8 @@ fi
 ### 2. Linux basic
 Các khái niệm, lệnh, và chức năng liên quan đến quản trị hệ thống Linux
 <details>
-  <summary>
-- Lệnh ls thường  </summary> được sử dụng để xác định các tập tin và thư mục trong thư mục làm việc. Lệnh này là một trong nhiều lệnh Linux thường được sử dụng mà bạn nên biết.
+
+-  <summary>Lệnh ls thường  </summary> được sử dụng để xác định các tập tin và thư mục trong thư mục làm việc. Lệnh này là một trong nhiều lệnh Linux thường được sử dụng mà bạn nên biết.
 - Lệnh pwd: Hiển thị hiện tại thư mục làm việc.
 - Lệnh mkdir: Tạo một thư mục.
 - Lệnh cd: Để điều hướng giữa các thư mục khác nhau
