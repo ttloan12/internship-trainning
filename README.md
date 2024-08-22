@@ -241,7 +241,50 @@ Chỉ cần bỏ bớt nhóm sở hữu và chỉ cần điền tên chủ sở 
 Trong trường hợp này, chỉ nhóm chủ sở hữu được đổi thành clients (chủ sở hữu sẽ không đổi).
 
  </details>
- 
+
+ **Package Management Centos 7**
+
+ Quản lý các gói là một khía cạnh quan trọng của quản trị hệ thống và phát triển trong môi trường Linux, chẳng hạn như CentOS. Có thể dùng YUM hoặc DNF. Dưới đây là 20 lệnh cơ bản giúp quản lý hiệu quả các gói của hệ thống CentOS, đảm bảo hệ thống chạy trơn tru và an toàn.
+
+1. Install a package:	sudo yum install package_name
+
+2. Update a package:	sudo yum update package_name
+
+3. Remove a package:	sudo yum remove package_name
+
+4. Search for a package:	yum search keyword
+
+5. List all installed packages:	yum list installed
+
+6. Check for available updates:	yum check-update
+
+7. Clean cached data:	sudo yum clean all
+
+8. List enabled repositories:	yum repolist
+
+9. Enable a repository:	sudo yum-config-manager --enable repo_name
+
+10. Disable a repository:	sudo yum-config-manager --disable repo_name
+
+11. Upgrade all packages:	sudo yum upgrade
+
+12. Show package information:	yum info package_name
+
+13. Find which package provides a file:	yum provides file_name
+
+14. Check package dependencies:	yum deplist package_name
+
+15. Download a package without installing:	yum download package_name
+
+16. Install a local RPM package:	sudo yum localinstall /full/path/to/package_name.rpm --- ví dụ sudo yum locatinstall ./telnet-0.17-85.e19.x86-64.
+
+17. Lock a package version:	sudo yum versionlock package_name
+
+18. Unlock a package version:	sudo yum versionlock delete package_name
+
+19. Reinstall a package:	sudo yum reinstall package_name
+
+20. List all available packages:	yum list all     
 
  
 ### 3. Openstack
