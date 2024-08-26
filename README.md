@@ -352,13 +352,6 @@ Bạn có thể kiểm tra xem các tập tin có thực sự nằm trên máy c
 
 Nếu bạn kết nối lần đầu tiên, bạn sẽ cần nhập mật khẩu và xác nhận khi nhận được lời nhắc. Không cần nhập tên người dùng để chuyển từ xa nếu bạn muốn kết nối với tư cách là người dùng hiện tại.
 
-Ví dụ chúng tôi sử dụng ở đây giả định rằng SSH sử dụng cổng mặc định. Nếu bạn cần chỉ định một cổng khác cho kết nối SSH, hãy sử dụng cờ -e và nhập tùy chọn SSH.
-
-Ví dụ, để chỉ định cổng 4455, hãy chạy lệnh trên theo định dạng này:
-
-```rsync -av -e 'ssh -p 4455' /home/test/Documents/Dir1 test@192.168.56.101:/home/test/backup```
-
-Khi cần, bạn có thể xóa các tệp nguồn sau khi chuyển chúng sang vị trí khác.
 
 - Nén dữ liệu khi sao lưu bằng Rsync
   
