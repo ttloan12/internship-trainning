@@ -1,6 +1,6 @@
 # internship-trainning
 ### 1. Đóng gói image
-Các hướng dẫn được thực hiện tại https://github.com/nhanhoadocs/create-images-openstack/blob/master/docs/Ubuntu2004.md
+Các hướng dẫn được thực hiện tại https://github.com/nhanhoadocs/create-images-openstack/blob/master/docs/Ubuntu2004.md 
 <details>
  
 #  <summary> một số khái niệm liên quan </summary>
@@ -372,6 +372,41 @@ Sau đó chuyển tập tin đó đến một vị trí khác:
 Bây giờ, bạn có một bản sao nén của thư mục trên máy chủ từ xa. Bạn cũng có thể thực hiện điều này để chuyển dữ liệu cục bộ nếu bạn muốn sao lưu trên ổ đĩa hoặc phân vùng khác.
 
   </details>
+
+  **System info**
+<details>
+ <summary>  </summary> 
+ 
+ + Lệnh ```lscpu``` cung cấp thông tin về CPU( xử lý các logic và phép toán), kiến ​​trúc bộ xử lý, khả năng ảo hóa của CPU và số lõi của  bộ xử lý.Thu thập thông tin từ file /proc/cpuinfo.
+ 
+ ![image](https://github.com/user-attachments/assets/8474180c-2955-4988-88cb-00789d7a30a2)
+ 
+ + lệnh ```free```  xem dung lượng bộ nhớ khả dụng (avaiable) trên hệ thống và dung lượng hiện đang được sử dụng. xem trên RAM( bộ nhớ truy cập ngẫu nhiên- bộ nhớ ảo trong phần cứng). Thu thập từ tệp /proc/meminfo.
+ 
+ + lệnh ```dmidecode``` để biết số lượng khe cắm bộ nhớ trên hệ thống và dung lượng RAM mỗi khe hiện đang giữ. Lệnh dmidecode đọc thông tin phần cứng từ các bảng DMI. ```sudo dmidecode -t memory | grep -i size```
+ 
+ ![image](https://github.com/user-attachments/assets/22099d22-1536-4b58-89f6-5bb6eec46b87)
+
+ + lệnh ```df``` để xem mức sử dụng đĩa hiện tại, bao gồm số lượng phân vùng (partitions) và dung lượng đĩa còn trống. Tùy chọn -h trình bày dữ liệu ở định dạng con người dễ đọc hơn.```df -h```
+ 
+ ![image](https://github.com/user-attachments/assets/733c2fb6-bfb7-4dc6-be52-81059d74488f)
+
+ + lệnh ```fdisk``` để có thêm thông tin chi tiết liên quan đến số lượng các phân vùng, kích thước của chúng, loại hệ thống tệp và các mục nhập vào phân vùng bảng (partition table entries).```sudo fdisk -l```
+   
+ + lệnh ```lshw``` Để nhận thông tin ngắn gọn liên quan đến toàn bộ thiết bị đĩa cứng ```lshw -short -C disk```
+
+ + Lệnh ```lsusb``` xem thông tin liên quan đến các thiết bị đĩa hiện được gắn vào hệ thống. Các thiết bị này bao gồm USB, đầu đọc đĩa ngoài, v.v.```lsusb```
+
+ +  lệnh ```lspci``` để xem các PCI bus và thông tin chi tiết về các thiết bị được kết nối với chúng.```lspci``` . Một số thiết bị phổ biến trong danh mục này bao gồm bộ điều hợp VGA, card đồ họa, card mạng (network adapter), cổng USB, bộ điều khiển SATA, v.v.
+
+ +  ```Dmesg``` để xem các thiết bị phần cứng được gắn vào PC Linux trong quá trình khởi động. Lệnh```dmesg``` không chỉ dùng để xem các thiết bị phần cứng được đính kèm mà còn là một lệnh tuyệt vời để tìm lỗi phần cứng vì nó lưu trữ thông tin về các thiết bị khi hệ thống khởi động.
+
+ + ``` sudo lshw -C network``` xem thông tin liên quan đến card mạng
+</details>
+
+
+
+
 ### 3. Openstack
 - Các thành phần openstack
 - Cài đặt keystone
