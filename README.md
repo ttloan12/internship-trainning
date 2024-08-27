@@ -404,8 +404,31 @@ Bây giờ, bạn có một bản sao nén của thư mục trên máy chủ t�
  + ``` sudo lshw -C network``` xem thông tin liên quan đến card mạng
 </details>
 
+  **Swap memory**
+<details>
+ <summary>  </summary>
+ 
+- Khi RAM hết memory, sẽ có một lựa chọn thay thế để giúp cho process của ta vẫn có thể hoạt động được. Cơ chế này đều có ở cả hệ điều hành Windows lẫn Linux. Khi lượng memory cần thiết để xử lý process không đủ, hệ điều hành sẽ “mượn” thêm memory từ một kho lưu trữ phụ (gọi là virtual memory) để chứa các nội dung không hoạt động (inactive). Nhờ đó, hệ thống của ta sẽ có thêm lượng memory trống để xử lý các process mới. Lượng memory phụ này được mượn từ ổ cứng và được gọi là Swap memory.
+  
+ + Phân vùng swap (swap partition): là loại swap memory mặc định của hệ thống. Khi đó, một phần vùng của ổ cứng sẽ được dành cho việc swapping. Loại swap này có thể được tạo từ lúc cài đặt HĐH và tự động mount vào sử dụng khi khởi động.
+   
+ + Tập tin swap (swap file): là loại swap memory do ta tự tạo. Trong trường hợp ổ cứng không còn đủ dung lượng để tạo một phân vùng mới dành cho swap, ta có thể tự tạo một file swap dùng cho việc swapping. Loại swap này có thể được tạo sau khi cài đặt HĐH, và không được tự động mount mà phải mount tay hoặc mount qua fstab.
+   
+-  swap memory là một phần riêng biệt của ổ cứng được sử dụng khi RAM hết memory. Đối với Linux, sẽ có một chương trình quản lý memory có nhiệm vụ xử lý công việc này. Khi RAM dần hết memory, chương trình trên sẽ thực hiện tìm kiếm những block dữ liệu inactive trên RAM mà không được sử dụng trong một khoảng thời gian dài. Sau khi tìm kiếm thành công, nó sẽ thực hiện bê block dữ liệu đó sang swap memory. Bằng cách này, không gian trên RAM sẽ được giải tỏa và nhờ đó các process cần thiết sử dụng memory hơn sẽ có đất để xài.
+  
+- Lợi ích :
+  
+  + Swap có ích trong việc lưu trữ những block dữ liệu ít được truy xuất, từ đó giải phóng bớt memory trên RAM để RAM có không gian xử lý các chương trình có độ ưu tiên cao hơn.
+    
+  + Giúp RAM không bị hết dung lượng.
+    
+  + Là phương án backup trong trường hợp RAM hết dung lượng và ta chưa thể nâng cấp kịp thời.
 
+  + Hỗ trợ một phần khi chạy các chương trình yêu cầu memory lớn.
 
+  + Khi hệ thống vào trạng thái ngủ đông (hibernation), tất cả nội dung trên RAM sẽ được chép vào swap. Từ đó việc quay trở lại trạng thái trước ngủ đông sẽ thuận tiện hơn.
+
+   </details>
 
 ### 3. Openstack
 - Các thành phần openstack
