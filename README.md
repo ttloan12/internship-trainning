@@ -429,8 +429,10 @@ Bây giờ, bạn có một bản sao nén của thư mục trên máy chủ t�
   + Khi hệ thống vào trạng thái ngủ đông (hibernation), tất cả nội dung trên RAM sẽ được chép vào swap. Từ đó việc quay trở lại trạng thái trước ngủ đông sẽ thuận tiện hơn.
 
    </details>
-
    
+**Quản lý user, group**
+
+  https://github.com/ttloan12/internship-trainning/blob/main/Qu%E1%BA%A3n%20l%C3%BD%20User%2C%20group.md 
 
 ### 3. Openstack
 - Các thành phần openstack
