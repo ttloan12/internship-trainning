@@ -430,6 +430,8 @@ Bây giờ, bạn có một bản sao nén của thư mục trên máy chủ t�
 
    </details>
 
+   
+
 ### 3. Openstack
 - Các thành phần openstack
 - Cài đặt keystone
