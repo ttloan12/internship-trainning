@@ -1,6 +1,6 @@
  **Quản lý User, group** 
 
-1. *User*
+**1. User**
 
 User là người có thể truy cập đến hệ thống.
 
@@ -12,7 +12,7 @@ Mỗi user còn có một định danh riêng gọi là UID.
 
 Định danh của người dùng bình thường sử dụng giá trị bắt đầu từ 500.
 
-2. *Group*
+**2. Group**
 
 Group là tập hợp nhiều user lại.
 
@@ -22,7 +22,7 @@ Khi tạo một user thì mặc định một group được tạo ra.
 
 Mỗi group còn có một định danh riêng gọi là GID.
 
-*3. Tập lệnh quản lý User và Group*
+**3. Tập lệnh quản lý User và Group**
 
 Tạo User:
 Cú pháp: #useradd [option] -c “Thông tin người dùng”
