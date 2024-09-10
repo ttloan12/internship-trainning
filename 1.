@@ -16,7 +16,6 @@ else
     echo -e "\nDocker version $docker_version is not sufficient. Please update Docker to version $required_version or later.\n"
     exit 1
 fi  `
-
 - bắt đầu web thì có mariadb, rabbitmq
 - chạy docker ps để hiện container ID 
 - chạy lệnh ` docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container-id  ` - tìm ra ip cần. Thay thế container-id tương ứng
