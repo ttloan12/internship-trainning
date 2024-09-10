@@ -9,7 +9,6 @@ vì đã có các phiên bản mới hơn. Phiên bản này phù hợp với c�
 - tạo WebvirtCloud cần tạo docker trước
 - docker version được chỉnh sửa trong `sudo nano ./webvirtcloud.sh-`. Tạo ra version vượt mức yêu cầu nhưng vẫn cảnh báo lỗi thì sửa ở đoạn docker-version
 ` required_version="25.0.0"
-
 # Compare versions using a simple logic
 if [ "$(printf '%s\n' "$required_version" "$docker_version" | sort -V | head -n1)" = "$required_version" ]; then
     echo -e "\nDocker version $docker_version is sufficient.\n"
